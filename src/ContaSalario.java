@@ -17,14 +17,14 @@ public class ContaSalario extends Conta {
     }
 
     public boolean sacar(double valor) {
-        if (valor > this.getSaldo()) {
+        if (valor > this.saldo) {
             System.out.println("Saldo insuficiente para saque.\nConfira seu saldo.");
             return false;
         }
         else {
             if(this.limiteDeSaque > 0) {
                 this.limiteDeSaque--;
-                this.setSaldo(this.saldo - valor);
+                this.saldo -= valor;
                 System.out.printf("Saque de: %.2f reais\nrealizado com sucesso.\n", valor);
                 return true;
             }

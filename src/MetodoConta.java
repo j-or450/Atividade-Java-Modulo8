@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class MetodoConta {
-    int opcao, varOpcoes, varSair, voltaMenuAnterior;
+    int opcao, varOpcoes, varSair, voltaMenuAnterior, escolha;
     Scanner input = new Scanner(System.in);
 
     public void primeiroMenu() {
@@ -13,8 +13,9 @@ public class MetodoConta {
         System.out.println("Conta corrente     [1]");
         System.out.println("Conta poupaça      [2]");
         System.out.println("Conta salario      [3]");
+        System.out.println("----------------------");
         System.out.println("Sair do apricativo [9]");
-        System.out.println("-----------------");
+        System.out.println("----------------------");
         System.out.println("Digite uma opção:");
         System.out.print("-> ");
     }
@@ -24,9 +25,11 @@ public class MetodoConta {
         System.out.println("Para saldo         [1]");
         System.out.println("Para saque         [2]");
         System.out.println("Para deposito      [3]");
-        System.out.println("Menu principal     [4]");
+        System.out.println("Para transferencia [4]");
+        System.out.println("----------------------");
+        System.out.println("Menu principal     [8]");
         System.out.println("Sair do aplicativo [9]");
-        System.out.println("-----------------");
+        System.out.println("----------------------");
         System.out.println("Digite uma opção:");
         System.out.print("-> ");
     }
@@ -34,24 +37,26 @@ public class MetodoConta {
     //É usado para sair do apicativo ou ir para o menu principal.
     public void sairDoAplicativo() {
         varOpcoes = input.nextInt();
+
         if(varOpcoes == 9) { //Sair do aplicativo
             opcao = varOpcoes;
-        }else if(varOpcoes == 4){ //Retorna ao menu anterior
+        }else if(varOpcoes == 8){ //Retorna ao menu anterior
             opcao = varOpcoes;
         }
     }
 
     public void chamaMenuPricipal() {
-        System.out.println("Menu anterior      [1]");
-        System.out.println("Menu principal     [2]");
+        System.out.println("----------------------");
+        System.out.println("Menu anterior      [7]");
+        System.out.println("Menu principal     [8]");
         System.out.println("Sair do apricativo [9]");
-        System.out.println("-----------------");
+        System.out.println("----------------------");
         System.out.println("Digite uma opção:");
         System.out.print("-> ");
         varSair = input.nextInt();
-        voltaMenuAnterior = varSair;
-        if(varSair == 2){ //Vai para o menu pricipal.
-            opcao = 4;
+        //voltaMenuAnterior = varSair;
+        if(varSair == 8){ //Vai para o menu pricipal.
+            opcao = 8;
         }else if(varSair == 9){ //Sai do aplicativo.
             opcao = 9;
         }

@@ -20,6 +20,18 @@ public class ContaPoupanca extends Conta {
         return diaAniversario;
     }
 
+    public void setDiaAniversario(int diaAniversario) {
+        this.diaAniversario = diaAniversario;
+    }
+
+    public double getTaxaDeJuros() {
+        return taxaDeJuros;
+    }
+
+    public void setTaxaDeJuros(double taxaDeJuros) {
+        this.taxaDeJuros = taxaDeJuros;
+    }
+
     public double getSaldo() {
         Calendar diaAtual = Calendar.getInstance();
         if(diaAtual.get(Calendar.DAY_OF_MONTH) >= this.diaAniversario) {
@@ -36,11 +48,12 @@ public class ContaPoupanca extends Conta {
     }
 
     public boolean sacar(double valor) {
-        if(valor > this.saldo) {
+        double disponivel = this.saldo;
+        if(valor > disponivel) {
             System.out.println("Saldo insuficiente para saque.\nConfira seu saldo.");
             return false;
         } else {
-            this.setSaldo(this.saldo - valor) ;
+            this.saldo -= valor;
             System.out.printf("Saque de: %.2f reais\nrealizado com sucesso.\n",valor);
             return true;
         }

@@ -50,7 +50,7 @@ public class TestaConta {
                             System.out.println("======================");
                             System.out.println("SALDO CONTA CORRENTE");
                             System.out.println("Saldo: " + contCorrente.getSaldo());
-                            System.out.println("----------------------");
+                            //System.out.println("----------------------");
                             menu.chamaMenuPricipal();
                             break;
 
@@ -59,9 +59,11 @@ public class TestaConta {
                             System.out.println("======================");
                             System.out.println("SAQUE CONTA CORRENTE");
                             System.out.println("----------------------");
-                            contCorrente.sacar(350);//Valor que sera sacado
+                            System.out.println("Qual o valor do saque?");
+                            double saque = input.nextDouble();
+                            contCorrente.sacar(saque);
                             System.out.println("----------------------");
-                            menu.chamaMenuPricipal();
+                            //menu.chamaMenuPricipal();
                             break;
 
                         //Entra na funcao de deposito da conta corrente.
@@ -69,10 +71,44 @@ public class TestaConta {
                             System.out.println("=======================");
                             System.out.println("DEPOSITO CONTA CORRENTE");
                             System.out.println("-----------------------");
-                            contCorrente.depositar(250);//Valor que sera depositado
-                            System.out.println("-----------------------");
+                            System.out.println("Qual o valor do deposito?");
+                            double deposito = input.nextDouble();
+                            contCorrente.depositar(deposito);
+                            //System.out.println("-----------------------");
                             menu.chamaMenuPricipal();
                             break;
+
+                        //Entra na funcao de transferencia da conta corrente.
+                        case 4:
+                            System.out.println("===================================");
+                            System.out.println("TRANSFERENCIA ELETRONICA");
+                            System.out.println("-----------------------------------");
+                            System.out.println("Escolha a conta para transfereicna.");
+                            System.out.println("----------------------");
+                            System.out.println("Conta corrente     [1]");
+                            System.out.println("Conta poupaça      [2]");
+                            System.out.println("Menu principal     [5]");
+                            System.out.println("Sair do apricativo [9]");
+                            //fazer logica para passar o conteudo do inpute escolha pa o de ocoes
+                            System.out.println("-----------------");
+                            System.out.println("Digite uma opção:");
+                            System.out.print("-> ");
+                            menu.escolha = input.nextInt();
+
+                            if(menu.escolha == 1){
+                                System.out.println("Contata corrente");
+                                menu.chamaMenuPricipal();
+
+                            }
+                            else if(menu.escolha == 2){
+                                System.out.println("Conta poupança");
+                                menu.chamaMenuPricipal();
+                            }
+                            else{
+                                menu.chamaMenuPricipal();
+                            }
+                            break;
+
                     }//Fim do switch da conta corrente
                     break; //Do switch 1.
 
@@ -108,8 +144,10 @@ public class TestaConta {
                             System.out.println("==============================");
                             System.out.println("SAQUE CONTA POUPANÇA");
                             System.out.println("------------------------------");
-                            contPoupanca.sacar(350);//Valor que sera sacado
-                            System.out.println("------------------------------");
+                            System.out.println("Qual o valor do saque?");
+                            double saque = input.nextDouble();
+                            contPoupanca.sacar(saque);
+                            //System.out.println("------------------------------");
                             menu.chamaMenuPricipal();
                             break;
 
@@ -118,7 +156,9 @@ public class TestaConta {
                             System.out.println("=======================");
                             System.out.println("DEPOSITO CONTA POUPANÇA");
                             System.out.println("-----------------------");
-                            contPoupanca.depositar(250);//Valor que sera depositado
+                            System.out.println("Qual o valor do deposito?");
+                            double deposito = input.nextDouble();
+                            contPoupanca.depositar(deposito);
                             System.out.println("-----------------------");
                             menu.chamaMenuPricipal();
                             break;
@@ -155,8 +195,10 @@ public class TestaConta {
                             System.out.println("======================");
                             System.out.println("SAQUE CONTA SALARIO");
                             System.out.println("----------------------");
+                            System.out.println("Qual o valor do saque?");
+                            double saque = input.nextDouble();
                             //System.out.println("Valor do saque:");
-                            contSalario.sacar(350);//Valor que sera sacado
+                            contSalario.sacar(saque);
                             System.out.println("----------------------");
                             menu.chamaMenuPricipal();
                             break;
@@ -177,7 +219,7 @@ public class TestaConta {
                     break; //Do switch 1.
 
                 //Case do switch 1.
-                case 4: //Cai no menu pricipal que é o primeiro menu.
+                case 8: //Cai no menu pricipal que é o primeiro menu.
                     menu.primeiroMenu(); //Menu principal.
                     menu.opcao = input.nextInt();
                     break; //Do suitch 1.
