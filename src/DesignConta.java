@@ -1,8 +1,37 @@
 import java.util.Scanner;
 
-public class MetodoConta {
-    int opcao, varOpcoes, varSair, voltaMenuAnterior, escolha;
+public class DesignConta {
+    int opcao, varOpcoes, varSair, voltaMenuAnterior, escolha, crienteAdm;
     Scanner input = new Scanner(System.in);
+
+    public void menuAdm() {
+        System.out.println("=============================");
+        System.out.println("         BANKTORAMA");
+        System.out.println("-----------------------------");
+        System.out.println("-------------------------");
+        System.out.println("Escolha uma conta:");
+        System.out.println("Criar conta           [1]");
+        System.out.println("Saldo total do banco  [2]");
+        System.out.println("Contas cadastradas    [3]");
+        System.out.println("-------------------------");
+        System.out.println("Digite uma opção:");
+        System.out.print("-> ");
+    }
+
+    public void menUm() {
+        System.out.println("=============================");
+        System.out.println("         BANKTORAMA");
+        System.out.println("-----------------------------");
+        System.out.println("---------------------------");
+        System.out.println("Escolha o tipo de acesso:  ");
+        System.out.println("Cliente do Banco        [1]");
+        System.out.println("Administrador do Banco  [2]");
+        System.out.println("---------------------------");
+        System.out.println("Sair do apricativo      [9]");
+        System.out.println("---------------------------");
+        System.out.println("Digite uma opção:");
+        System.out.print("-> ");
+    }
 
     public void primeiroMenu() {
         System.out.println("=============================");

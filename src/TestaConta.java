@@ -12,7 +12,7 @@ public class TestaConta {
 
         Scanner input = new Scanner(System.in);
 
-        MetodoConta menu = new MetodoConta();
+        DesignConta menu = new DesignConta();
 
         //Construtor da conta corrente.
         ContaCorrente contCorrente = new ContaCorrente(11111, 41, 100, 500);
@@ -23,10 +23,20 @@ public class TestaConta {
         //Construtor da conta salario.
         ContaSalario contSalario = new ContaSalario(55555, 41, 1500, 2);
 
+        menu.menUm();
+        menu.crienteAdm = input.nextInt();
+        if(menu.crienteAdm == 1){
+            menu.primeiroMenu();
+        }
+        else if(menu.crienteAdm == 2){
+            menu.menuAdm();
+        }
+
         //Mostra o primeiro menu.
-        menu.primeiroMenu();
+        //menu.primeiroMenu();
 
         //Capitura a opção digitada.
+
         menu.opcao = input.nextInt();
         for (;;) {
 
