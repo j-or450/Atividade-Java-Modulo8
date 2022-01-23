@@ -229,6 +229,21 @@ public class TestaConta {
                     break; //Do switch 1.
 
                 //Case do switch 1.
+                //Cria conta
+                case 4:
+                    System.out.println("4");
+                    System.out.println("Digite o numero da conta:");
+
+
+                    break;
+                    //Valor total no banco
+                case 5:
+                    System.out.println("5");
+                    break;
+                case 6:
+                    System.out.println("6");
+                    break;
+
                 case 8: //Cai no menu pricipal que é o primeiro menu.
                     menu.primeiroMenu(); //Menu principal.
                     menu.opcao = input.nextInt();

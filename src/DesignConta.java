@@ -10,9 +10,11 @@ public class DesignConta {
         System.out.println("-----------------------------");
         System.out.println("-------------------------");
         System.out.println("Escolha uma conta:");
-        System.out.println("Criar conta           [1]");
-        System.out.println("Saldo total do banco  [2]");
-        System.out.println("Contas cadastradas    [3]");
+        System.out.println("Criar conta           [4]");
+        System.out.println("Saldo total do banco  [5]");
+        System.out.println("Contas cadastradas    [6]");
+        System.out.println("-------------------------");
+        System.out.println("Sair do apricativo    [9]");
         System.out.println("-------------------------");
         System.out.println("Digite uma opção:");
         System.out.print("-> ");
@@ -26,8 +28,6 @@ public class DesignConta {
         System.out.println("Escolha o tipo de acesso:  ");
         System.out.println("Cliente do Banco        [1]");
         System.out.println("Administrador do Banco  [2]");
-        System.out.println("---------------------------");
-        System.out.println("Sair do apricativo      [9]");
         System.out.println("---------------------------");
         System.out.println("Digite uma opção:");
         System.out.print("-> ");
