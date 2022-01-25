@@ -28,8 +28,9 @@ public class Administrador {
                 System.out.println("Conta:....." + numeroConta);
                 System.out.println("Saldo:....." + conta.ContaCorrente.getSaldo());
                 System.out.println("Ch.Esp.:..." + conta.ContaCorrente.getChequeEspecial());
-                System.out.println("--------------------------");
-                System.out.println("Volta menu principal   [4]");
+                System.out.println("----------------------");
+                System.out.println("Menu principal     [4]");
+                System.out.println("Digite uma opção:");
                 System.out.print("-> ");
             }
         }

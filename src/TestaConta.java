@@ -35,7 +35,7 @@ public class TestaConta {
             menu.primeiroMenu();
         }
         else if(menu.crienteAdm == 2){
-            menu.menuAdm();
+            menu.menuAdmPrimeiro();
         }
 
         //Mostra o primeiro menu.
@@ -236,10 +236,35 @@ public class TestaConta {
                 //Case do switch 1.
 
                 case 4://Cria conta
-                   menuAdm.criarConta(administrador);
-                   System.out.println("TTTTTTTTT");
-                    System.out.println("Digite 9 pra siar");
-                   menu.sairDoAplicativo();
+                    Scanner inputAdm = new Scanner(System.in);
+                   //menu.menuAdmSegundo();
+                   int escolha = 0;
+                   do{
+                       menu.menuAdmSegundo();
+                       escolha = inputAdm.nextInt();
+
+                       switch (escolha){
+                           case 1:
+                               menuAdm.criarConta(administrador);
+                               System.out.println("TTTTTTTTT");
+                               break;
+                           case 2:
+                               break;
+                           case 3:
+                               break;
+                       }
+
+                   }
+                   while(escolha < 4);
+
+
+                   //menuAdm.criarConta(administrador);
+                   //System.out.println("TTTTTTTTT");
+                   //System.out.println("Digite 9 pra siar");
+                   //menu.sairDoAplicativo();
+
+
+
                    break;
                 case 5:
                     System.out.println("5");
