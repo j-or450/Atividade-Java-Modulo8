@@ -31,7 +31,7 @@ public class MenuAdm {
                 System.out.print("-> ");
                 n = false;
             }
-                opcao = cliente.nextInt();
+            opcao = cliente.nextInt();
 
             switch (opcao) {
                 case 1:

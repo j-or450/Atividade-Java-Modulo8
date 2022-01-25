@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class TestaConta {
     public static void main(String[] args) {
-
+        int escolha = 0;
         Scanner input = new Scanner(System.in);
 
         DesignConta menu = new DesignConta();
@@ -238,9 +238,11 @@ public class TestaConta {
                 case 4://Cria conta
                     Scanner inputAdm = new Scanner(System.in);
                    //menu.menuAdmSegundo();
-                   int escolha = 0;
+
+                    System.out.println("111111111");
                    do{
                        menu.menuAdmSegundo();
+
                        escolha = inputAdm.nextInt();
 
                        switch (escolha){
@@ -253,19 +255,15 @@ public class TestaConta {
                            case 3:
                                break;
                        }
-
+                       System.out.println("2222222");
                    }
-                   while(escolha < 4);
+                   while(escolha != 8);
 
+                   menu.opcao = escolha;
 
-                   //menuAdm.criarConta(administrador);
-                   //System.out.println("TTTTTTTTT");
-                   //System.out.println("Digite 9 pra siar");
-                   //menu.sairDoAplicativo();
-
-
-
+                   System.out.println("333333");
                    break;
+
                 case 5:
                     System.out.println("5");
 
