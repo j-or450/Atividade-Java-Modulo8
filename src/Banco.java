@@ -1,13 +1,44 @@
 import java.util.Scanner;
 
 public class Banco {
-    Scanner transf = new Scanner(System.in);
-    public void transferir(){
-        System.out.println("Fazer transferencia");
-        System.out.println("Digite a conta de origem:");
-        int c = transf.nextInt();
+    protected String NomeCliente;
+    protected ContaPoupanca ContaPoupanca;
+    protected ContaCorrente ContaCorrente;
+    protected ContaSalario  ContaSalario;
+    protected Conta transferir;
 
+    public String getNomeCliente() {
+        return NomeCliente;
     }
-}
 
-//vai ser chamado no testa conta
+    public void setNomeCliente(String nomeCliente) {
+        NomeCliente = nomeCliente;
+    }
+
+    public void criarContaCorrente(int numero, int agencia, double saldo, double chequeEspecial){
+        this.ContaCorrente = new ContaCorrente(numero,agencia,saldo,chequeEspecial);
+    }
+
+    public int numeroDeConta(){
+        int numero = 0;
+
+        if(ContaPoupanca != null ){
+            numero += ContaPoupanca.getNumero();
+
+        }
+
+        if(ContaCorrente != null ){
+            numero += ContaCorrente.getNumero();
+
+        }
+
+        if(ContaSalario != null ){
+            numero += ContaSalario.getNumero();
+
+        }
+
+
+        return numero;
+    }
+
+}

@@ -14,6 +14,12 @@ public class TestaConta {
 
         DesignConta menu = new DesignConta();
 
+        Banco banco = new Banco();
+
+        MenuAdm menuAdm = new MenuAdm();
+
+        Administrador administrador = new Administrador();
+
         //Construtor da conta corrente.
         ContaCorrente contCorrente = new ContaCorrente(11111, 41, 100, 500);
 
@@ -221,7 +227,6 @@ public class TestaConta {
                             contSalario.depositar();
                             System.out.println("----------------------");
                             menu.chamaMenuPricipal();
-
                             break;
                     }
                     //Fim do switch 4.
@@ -229,16 +234,16 @@ public class TestaConta {
                     break; //Do switch 1.
 
                 //Case do switch 1.
-                //Cria conta
-                case 4:
-                    System.out.println("4");
-                    System.out.println("Digite o numero da conta:");
 
-
-                    break;
-                    //Valor total no banco
+                case 4://Cria conta
+                   menuAdm.criarConta(administrador);
+                   System.out.println("TTTTTTTTT");
+                    System.out.println("Digite 9 pra siar");
+                   menu.sairDoAplicativo();
+                   break;
                 case 5:
                     System.out.println("5");
+
                     break;
                 case 6:
                     System.out.println("6");

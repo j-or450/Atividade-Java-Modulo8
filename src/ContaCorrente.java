@@ -6,6 +6,14 @@ public class ContaCorrente extends Conta {
         this.chequeEspecial = chequeEspecial;
     }
 
+    public double getChequeEspecial() {
+        return chequeEspecial;
+    }
+
+    public void setChequeEspecial(double chequeEspecial) {
+        this.chequeEspecial = chequeEspecial;
+    }
+
     @Override
     public String toString() {
         return "Numero: " + getNumero() +
