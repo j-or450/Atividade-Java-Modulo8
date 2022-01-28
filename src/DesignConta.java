@@ -24,7 +24,7 @@ public class DesignConta {
 
         System.out.println("Criar conta           [1]");
         System.out.println("Saldo total do banco  [2]");
-        System.out.println("Contas cadastradas    [4]");
+        System.out.println("Contas cadastradas    [3]");
         System.out.println("-------------------------");
         System.out.println("Sair do acesso de Adm.[9]");
         System.out.println("-------------------------");

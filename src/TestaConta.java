@@ -229,28 +229,30 @@ public class TestaConta {
 
                     //Case do switch 1.
 
-                    case 4://Cria conta
-                        Scanner inputAdm = new Scanner(System.in);
-                        //menu.menuAdmSegundo();
 
-                        System.out.println("111111111");
+                    case 4://Entra na parte Adm
+                        Scanner inputAdm = new Scanner(System.in);
+
                         do {
                             menu.menuAdmSegundo();
 
                             escolha = inputAdm.nextInt();
 
                             switch (escolha) {
-                                case 1:
+                                case 1://Criar as contas
                                     menuAdm.criarConta(administrador);
-                                    System.out.println("TTTTTTTTT");
                                     break;
-                                case 2:
+
+                                case 2://Mostra o saldo total do banco
+                                    administrador.saldoTotal();
                                     break;
-                                case 3:
+
+                                case 3://Contas criadas
+                                    administrador.contasCadastradas();
                                     break;
                             }
-                            System.out.println("2222222");
                         }
+
                         while (escolha != 9);
 
                         menu.opcao = escolha;

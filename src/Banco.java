@@ -19,6 +19,32 @@ public class Banco {
         this.ContaCorrente = new ContaCorrente(numero,agencia,saldo,chequeEspecial);
     }
 
+    public void criarContaPoupanca(int numero, int agencia, double saldo, int diaAniversario, double taxaDeJuros){
+        this.ContaPoupanca=new ContaPoupanca(numero, agencia, saldo, diaAniversario, taxaDeJuros);
+    }
+
+    public void criarContaSalario(int numero, int agencia, double saldo, int limite){
+        this.ContaSalario=new ContaSalario(numero, agencia, saldo, limite);
+    }
+
+    public Double saldo(){
+        Double saldo = 0.0;
+
+        if(ContaPoupanca != null ){
+            saldo += ContaPoupanca.getSaldo();
+        }
+
+        if(ContaCorrente != null ){
+            saldo += ContaCorrente.getSaldo();
+        }
+
+        if(ContaSalario != null ){
+            saldo += ContaSalario.getSaldo();
+        }
+
+        return saldo;
+    }
+
     public int numeroDeConta(){
         int numero = 0;
 
@@ -36,8 +62,6 @@ public class Banco {
             numero += ContaSalario.getNumero();
 
         }
-
-
         return numero;
     }
 

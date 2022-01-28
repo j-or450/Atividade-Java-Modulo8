@@ -2,15 +2,15 @@ import java.util.Scanner;
 
 public class MenuAdm {
 
-    Administrador administrador = new Administrador();
-    Banco banco = new Banco();
+    //Administrador administrador = new Administrador();
+    //Banco banco = new Banco();
 
     public void criarConta(Administrador administrador) {
         Scanner cliente = new Scanner(System.in);
         System.out.println("=========================");
-        System.out.println("Abrir um nova conta");
+        System.out.println("Abrir uma nova conta");
         System.out.println("-------------------------");
-        System.out.println("Dig. o nome do Cliente:");
+        System.out.println("Nome do Cliente:");
         System.out.print("-> ");
         String nome = cliente.nextLine();
         administrador.criarConta(nome);
@@ -38,13 +38,16 @@ public class MenuAdm {
                     administrador.criarContaCorrente(nome);
                     break;
                 case 2:
+                    administrador.criarContaPoupanca(nome);
                     break;
                 case 3:
+                    administrador.criarContaSalario(nome);
                     break;
             }
         }
         while (opcao != 4);
     }
+
 }
 
 
