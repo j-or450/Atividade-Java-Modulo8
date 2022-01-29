@@ -30,7 +30,6 @@ public class TestaConta {
         ContaSalario contSalario = new ContaSalario(55555, 41, 1500, 2);
 
         do {
-
             menu.menUm();
             menu.crienteAdm = input.nextInt();
             if (menu.crienteAdm == 1) {
@@ -40,12 +39,13 @@ public class TestaConta {
             }
 
             menu.opcao = input.nextInt();
-            for (; ; ) {
+
+            for (; ;) {
 
                 //Inico do switch 1.
                 switch (menu.opcao) {
-                    //Esse case entra na conta corrente.
-                    case 1:
+
+                    case 1: //Esse case entra na conta corrente.
                         System.out.println("=============================");
                         System.out.println("       CONTA CORRENTE");
                         System.out.println(contCorrente);
@@ -55,10 +55,9 @@ public class TestaConta {
 
                         menu.sairDoAplicativo();//Captura a opção escolhida.
 
-                        //Esse switch entra nas funcões conta corrente
-                        switch (menu.varOpcoes) {
-                            //Entra na fução saldo da conta corrente
-                            case 1:
+                        switch (menu.varOpcoes) {//Esse switch entra nas funcões conta corrente
+
+                            case 1: //Entra na fução saldo da conta corrente
                                 System.out.println("======================");
                                 System.out.println("SALDO CONTA CORRENTE");
                                 System.out.println("Saldo: " + contCorrente.getSaldo());
@@ -66,8 +65,7 @@ public class TestaConta {
                                 menu.chamaMenuPricipal();
                                 break;
 
-                            //Entre na fução saque da conta corrente
-                            case 2:
+                            case 2://Entre na fução saque da conta corrente
                                 System.out.println("======================");
                                 System.out.println("SAQUE CONTA CORRENTE");
                                 System.out.println("----------------------");
@@ -78,8 +76,7 @@ public class TestaConta {
                                 //menu.chamaMenuPricipal();
                                 break;
 
-                            //Entra na funcao de deposito da conta corrente.
-                            case 3:
+                            case 3://Entra na funcao de deposito da conta corrente.
                                 System.out.println("=======================");
                                 System.out.println("DEPOSITO CONTA CORRENTE");
                                 System.out.println("-----------------------");
@@ -90,8 +87,7 @@ public class TestaConta {
                                 menu.chamaMenuPricipal();
                                 break;
 
-                            //Entra na funcao de transferencia da conta corrente.
-                            case 4:
+                            case 4://Entra na funcao de transferencia da conta corrente.
                                 System.out.println("===================================");
                                 System.out.println("TRANSFERENCIA ELETRONICA");
                                 System.out.println("-----------------------------------");
@@ -122,10 +118,8 @@ public class TestaConta {
                         }//Fim do switch da conta corrente
                         break; //Do switch 1.
 
-
                     //Case do switch 1.
-                    //Esse case entra na conta poupaça.
-                    case 2:
+                    case 2://Esse case entra na conta poupaça.
                         System.out.println("=============================");
                         System.out.println("        CONTA POUPAÇA");
                         System.out.println(contPoupanca);
@@ -133,13 +127,10 @@ public class TestaConta {
 
                         menu.segundoMenu(); //Mostra o menu sado, sacar e etc.
 
-                        //Captura a opção escolhida.
-                        menu.sairDoAplicativo();
+                        menu.sairDoAplicativo(); //Captura a opção escolhida.
 
-                        //Esse switch entra nas fuções da conta poupaça
-                        switch (menu.varOpcoes) {
-                            //Entra na fução saldo da conta poupaça
-                            case 1:
+                        switch (menu.varOpcoes) {//Esse switch entra nas fuções da conta poupaça
+                            case 1: //Entra na fução saldo da conta poupaça
                                 System.out.println("==============================");
                                 System.out.println("SALDO CONTA POUPANÇA");
                                 System.out.println("------------------------------");
@@ -149,8 +140,7 @@ public class TestaConta {
                                 menu.chamaMenuPricipal();
                                 break;
 
-                            //Entre na fução saque da conta poupaça
-                            case 2:
+                            case 2://Entre na fução saque da conta poupaça
                                 System.out.println("==============================");
                                 System.out.println("SAQUE CONTA POUPANÇA");
                                 System.out.println("------------------------------");
@@ -161,8 +151,7 @@ public class TestaConta {
                                 menu.chamaMenuPricipal();
                                 break;
 
-                            //Entra na funcao de deposito da conta poupaça.
-                            case 3:
+                            case 3://Entra na funcao de deposito da conta poupaça.
                                 System.out.println("=======================");
                                 System.out.println("DEPOSITO CONTA POUPANÇA");
                                 System.out.println("-----------------------");
@@ -175,10 +164,8 @@ public class TestaConta {
                         }//Fim do switch da conta poupaça
                         break; //Do switch 1
 
-
                     //Case do switch 1.
-                    //Entra na conta salario
-                    case 3:
+                    case 3://Entra na conta salario
                         System.out.println("=============================");
                         System.out.println("         CONTA SALARIO");
                         System.out.println(contSalario);
@@ -186,13 +173,12 @@ public class TestaConta {
 
                         menu.segundoMenu(); //Mostra o menu sado, sacar e etc.
 
-                        //Captura a opção escolhida.
-                        menu.sairDoAplicativo();
 
-                        //Esse switch entra nas funcões conta salario
-                        switch (menu.varOpcoes) {
-                            //Entra na fução saldo da conta salario
-                            case 1:
+                        menu.sairDoAplicativo();//Captura a opção escolhida.
+
+
+                        switch (menu.varOpcoes) {//Esse switch entra nas funcões conta salario
+                            case 1: //Entra na fução saldo da conta salario
                                 System.out.println("======================");
                                 System.out.println("SALDO DA CONTA SALARIO");
                                 System.out.println("Saldo: " + contSalario.getSaldo());
@@ -200,8 +186,7 @@ public class TestaConta {
                                 menu.chamaMenuPricipal();
                                 break;
 
-                            //Entre na fução saque da conta salario
-                            case 2:
+                            case 2: //Entre na fução saque da conta salario
                                 System.out.println("======================");
                                 System.out.println("SAQUE CONTA SALARIO");
                                 System.out.println("----------------------");
@@ -213,8 +198,7 @@ public class TestaConta {
                                 menu.chamaMenuPricipal();
                                 break;
 
-                            //Entra na funcao de deposito da conta salario.
-                            case 3:
+                            case 3://Entra na funcao de deposito da conta salario.
                                 System.out.println("======================");
                                 System.out.println("DEPOSITO CONTA SALARIO");
                                 System.out.println("----------------------");
@@ -223,13 +207,10 @@ public class TestaConta {
                                 menu.chamaMenuPricipal();
                                 break;
                         }
-                        //Fim do switch 4.
-
                         break; //Do switch 1.
 
+
                     //Case do switch 1.
-
-
                     case 4://Entra na parte Adm
                         Scanner inputAdm = new Scanner(System.in);
 
@@ -252,20 +233,8 @@ public class TestaConta {
                                     break;
                             }
                         }
-
                         while (escolha != 9);
-
                         menu.opcao = escolha;
-
-                        System.out.println("333333");
-                        break;
-
-                    case 5:
-                        System.out.println("5");
-
-                        break;
-                    case 6:
-                        System.out.println("6");
                         break;
 
                     case 8: //Cai no menu pricipal que é o primeiro menu.
