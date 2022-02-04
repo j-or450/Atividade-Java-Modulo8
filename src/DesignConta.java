@@ -11,7 +11,7 @@ public class DesignConta {
         System.out.println("-------------------------");
         System.out.println("Login de Administrador:");
         System.out.println("Para continuar      [4]");
-        System.out.println("Sair do aplicativo  [0]");
+        System.out.println("Sair do aplicativo  [9]");
         System.out.println("Digite uma opção:");
         System.out.print("-> ");
     }
@@ -47,31 +47,28 @@ public class DesignConta {
     }
 
     public void primeiroMenu() {
-        System.out.println("=============================");
-        System.out.println("         BANKTORAMA");
-        System.out.println("-----------------------------");
-        System.out.println("----------------------");
-        System.out.println("Escolha uma conta:");
+        System.out.println("--------------------------------");
+        System.out.println("Digite uma conta p/ ver o saldo:");
+        System.out.println("--------------------------");
         System.out.println("Conta corrente     [1]");
         System.out.println("Conta poupaça      [2]");
         System.out.println("Conta salario      [3]");
-        System.out.println("----------------------");
-        System.out.println("sair do acesso cliente [9]");
-        System.out.println("----------------------");
+        System.out.println("--------------------------");
+        System.out.println("sair do acesso cliente [8]");
+        System.out.println("--------------------------");
         System.out.println("Digite uma opção:");
         System.out.print("-> ");
     }
 
     public void segundoMenu() {
-        System.out.println("----------------------");
+        System.out.println("--------------------------");
         System.out.println("Para saldo         [1]");
         System.out.println("Para saque         [2]");
         System.out.println("Para deposito      [3]");
         System.out.println("Para transferencia [4]");
-        System.out.println("----------------------");
-        System.out.println("Menu principal     [8]");
-        System.out.println("Sair do acesso cliente [9]");
-        System.out.println("----------------------");
+        System.out.println("--------------------------");
+        System.out.println("Sair do acesso cliente [8]");
+        System.out.println("--------------------------");
         System.out.println("Digite uma opção:");
         System.out.print("-> ");
     }
@@ -103,4 +100,6 @@ public class DesignConta {
             opcao = 9;
         }
     }
+
+
 }

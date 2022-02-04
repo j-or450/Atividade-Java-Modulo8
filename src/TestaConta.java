@@ -1,259 +1,101 @@
 
-//Toda vez que escolher a opção saque em qualquer uma das contas sera debidato um valor de 350.00 da contanta mas respeitando as regras de negocio da conta e o saldo.
-
-//Se escolher a opção deposito na conta corrente e na conta poupança sera depositado um valor 250.00 reias, não tem limete para quantidade de deposito.
-
-//Conta salario o limite e de 2 saque e nao pode fazer deposito.
-
 import java.util.Scanner;
 
 public class TestaConta {
-    public static void main(String[] args) {
-        int escolha = 0;
-        Scanner input = new Scanner(System.in);
 
-        DesignConta menu = new DesignConta();
+    MenuAdm menuAdm = new MenuAdm();
 
+    public void entraNaConta() {
         Banco banco = new Banco();
-
-        MenuAdm menuAdm = new MenuAdm();
-
+        int opc = 0;
         Administrador administrador = new Administrador();
+        Scanner clit = new Scanner(System.in);
+        System.out.println("Digite seu nome p/ acessar a conta:");
+        System.out.println("->");
+        String cliente = clit.nextLine();
+        System.out.println("=================================");
+        for (Banco conta : administrador.contas) {
+            if (conta.getNomeCliente().equals(cliente)) {
+                System.out.println("Ola, " + conta.getNomeCliente() + " é bom te ver de novo!");
 
-        //Construtor da conta corrente.
-        ContaCorrente contCorrente = new ContaCorrente(11111, 41, 100, 500);
+                do {
+                    System.out.println("--------------------------");
+                    System.out.println("Para saldo         [1]");
+                    System.out.println("Para saque         [2]");
+                    System.out.println("Para deposito      [3]");
+                    System.out.println("Para transferencia [4]");
+                    System.out.println("--------------------------");
+                    System.out.println("Sair do acesso cliente [8]");
+                    System.out.println("--------------------------");
+                    System.out.println("Digite uma opção:");
+                    System.out.print("-> ");
 
-        //Construtor da conta poupaça.
-        ContaPoupanca contPoupanca = new ContaPoupanca(33333, 41, 500, 10,  0.05);
+                    opc = clit.nextInt();
 
-        //Construtor da conta salario.
-        ContaSalario contSalario = new ContaSalario(55555, 41, 1500, 2);
+                    switch (opc) {
+                        case 1:
+                            menuAdm.saldoDasConstas();
+                            break;
+                        case 2:
+                            menuAdm.sacarContas(administrador);
+                            break;
 
-        do {
-            menu.menUm();
-            menu.crienteAdm = input.nextInt();
-            if (menu.crienteAdm == 1) {
-                menu.primeiroMenu();
-            } else if (menu.crienteAdm == 2) {
-                menu.menuAdmPrimeiro();
-            }
+                        case 3:
+                            menuAdm.depositarConta(administrador);
+                            break;
 
-            menu.opcao = input.nextInt();
+                        default:
+                            System.out.println("Opção invalida!");
+                            break;
+                    }
 
-            for (; ;) {
-
-                //Inico do switch 1.
-                switch (menu.opcao) {
-
-                    case 1: //Esse case entra na conta corrente.
-                        System.out.println("=============================");
-                        System.out.println("       CONTA CORRENTE");
-                        System.out.println(contCorrente);
-                        System.out.println("-----------------------------");
-
-                        menu.segundoMenu(); //Mostra o menu sado, sacar e etc.
-
-                        menu.sairDoAplicativo();//Captura a opção escolhida.
-
-                        switch (menu.varOpcoes) {//Esse switch entra nas funcões conta corrente
-
-                            case 1: //Entra na fução saldo da conta corrente
-                                System.out.println("======================");
-                                System.out.println("SALDO CONTA CORRENTE");
-                                System.out.println("Saldo: " + contCorrente.getSaldo());
-                                //System.out.println("----------------------");
-                                menu.chamaMenuPricipal();
-                                break;
-
-                            case 2://Entre na fução saque da conta corrente
-                                System.out.println("======================");
-                                System.out.println("SAQUE CONTA CORRENTE");
-                                System.out.println("----------------------");
-                                System.out.println("Qual o valor do saque?");
-                                double saque = input.nextDouble();
-                                contCorrente.sacar(saque);
-                                System.out.println("----------------------");
-                                //menu.chamaMenuPricipal();
-                                break;
-
-                            case 3://Entra na funcao de deposito da conta corrente.
-                                System.out.println("=======================");
-                                System.out.println("DEPOSITO CONTA CORRENTE");
-                                System.out.println("-----------------------");
-                                System.out.println("Qual o valor do deposito?");
-                                double deposito = input.nextDouble();
-                                contCorrente.depositar(deposito);
-                                //System.out.println("-----------------------");
-                                menu.chamaMenuPricipal();
-                                break;
-
-                            case 4://Entra na funcao de transferencia da conta corrente.
-                                System.out.println("===================================");
-                                System.out.println("TRANSFERENCIA ELETRONICA");
-                                System.out.println("-----------------------------------");
-                                System.out.println("Escolha a conta para transfereicna.");
-                                System.out.println("----------------------");
-                                System.out.println("Conta corrente     [1]");
-                                System.out.println("Conta poupaça      [2]");
-                                System.out.println("Menu principal     [5]");
-                                System.out.println("Sair do apricativo [9]");
-                                //fazer logica para passar o conteudo do inpute escolha pa o de ocoes
-                                System.out.println("-----------------");
-                                System.out.println("Digite uma opção:");
-                                System.out.print("-> ");
-                                menu.escolha = input.nextInt();
-
-                                if (menu.escolha == 1) {
-                                    System.out.println("Contata corrente");
-                                    menu.chamaMenuPricipal();
-
-                                } else if (menu.escolha == 2) {
-                                    System.out.println("Conta poupança");
-                                    menu.chamaMenuPricipal();
-                                } else {
-                                    menu.chamaMenuPricipal();
-                                }
-                                break;
-
-                        }//Fim do switch da conta corrente
-                        break; //Do switch 1.
-
-                    //Case do switch 1.
-                    case 2://Esse case entra na conta poupaça.
-                        System.out.println("=============================");
-                        System.out.println("        CONTA POUPAÇA");
-                        System.out.println(contPoupanca);
-                        System.out.println("-----------------------------");
-
-                        menu.segundoMenu(); //Mostra o menu sado, sacar e etc.
-
-                        menu.sairDoAplicativo(); //Captura a opção escolhida.
-
-                        switch (menu.varOpcoes) {//Esse switch entra nas fuções da conta poupaça
-                            case 1: //Entra na fução saldo da conta poupaça
-                                System.out.println("==============================");
-                                System.out.println("SALDO CONTA POUPANÇA");
-                                System.out.println("------------------------------");
-                                System.out.println("Dia do aniversario da conta: " + contPoupanca.getDiaAniversario());
-                                System.out.printf("Saldo: %.2f\n", contPoupanca.getSaldo());
-                                System.out.println("------------------------------");
-                                menu.chamaMenuPricipal();
-                                break;
-
-                            case 2://Entre na fução saque da conta poupaça
-                                System.out.println("==============================");
-                                System.out.println("SAQUE CONTA POUPANÇA");
-                                System.out.println("------------------------------");
-                                System.out.println("Qual o valor do saque?");
-                                double saque = input.nextDouble();
-                                contPoupanca.sacar(saque);
-                                //System.out.println("------------------------------");
-                                menu.chamaMenuPricipal();
-                                break;
-
-                            case 3://Entra na funcao de deposito da conta poupaça.
-                                System.out.println("=======================");
-                                System.out.println("DEPOSITO CONTA POUPANÇA");
-                                System.out.println("-----------------------");
-                                System.out.println("Qual o valor do deposito?");
-                                double deposito = input.nextDouble();
-                                contPoupanca.depositar(deposito);
-                                System.out.println("-----------------------");
-                                menu.chamaMenuPricipal();
-                                break;
-                        }//Fim do switch da conta poupaça
-                        break; //Do switch 1
-
-                    //Case do switch 1.
-                    case 3://Entra na conta salario
-                        System.out.println("=============================");
-                        System.out.println("         CONTA SALARIO");
-                        System.out.println(contSalario);
-                        System.out.println("-----------------------------");
-
-                        menu.segundoMenu(); //Mostra o menu sado, sacar e etc.
-
-
-                        menu.sairDoAplicativo();//Captura a opção escolhida.
-
-
-                        switch (menu.varOpcoes) {//Esse switch entra nas funcões conta salario
-                            case 1: //Entra na fução saldo da conta salario
-                                System.out.println("======================");
-                                System.out.println("SALDO DA CONTA SALARIO");
-                                System.out.println("Saldo: " + contSalario.getSaldo());
-                                System.out.println("----------------------");
-                                menu.chamaMenuPricipal();
-                                break;
-
-                            case 2: //Entre na fução saque da conta salario
-                                System.out.println("======================");
-                                System.out.println("SAQUE CONTA SALARIO");
-                                System.out.println("----------------------");
-                                System.out.println("Qual o valor do saque?");
-                                double saque = input.nextDouble();
-                                //System.out.println("Valor do saque:");
-                                contSalario.sacar(saque);
-                                System.out.println("----------------------");
-                                menu.chamaMenuPricipal();
-                                break;
-
-                            case 3://Entra na funcao de deposito da conta salario.
-                                System.out.println("======================");
-                                System.out.println("DEPOSITO CONTA SALARIO");
-                                System.out.println("----------------------");
-                                contSalario.depositar();
-                                System.out.println("----------------------");
-                                menu.chamaMenuPricipal();
-                                break;
-                        }
-                        break; //Do switch 1.
-
-
-                    //Case do switch 1.
-                    case 4://Entra na parte Adm
-                        Scanner inputAdm = new Scanner(System.in);
-
-                        do {
-                            menu.menuAdmSegundo();
-
-                            escolha = inputAdm.nextInt();
-
-                            switch (escolha) {
-                                case 1://Criar as contas
-                                    menuAdm.criarConta(administrador);
-                                    break;
-
-                                case 2://Mostra o saldo total do banco
-                                    administrador.saldoTotal();
-                                    break;
-
-                                case 3://Contas criadas
-                                    administrador.contasCadastradas();
-                                    break;
-                            }
-                        }
-                        while (escolha != 9);
-                        menu.opcao = escolha;
-                        break;
-
-                    case 8: //Cai no menu pricipal que é o primeiro menu.
-                        menu.primeiroMenu(); //Menu principal.
-                        menu.opcao = input.nextInt();
-                        break; //Do suitch 1.
-
-                }// Fim do switch 1.
-
-                if (menu.opcao == 9) break; //Finaliza o loop do for.
+                } while (opc < 4);
             }
         }
-        while (menu.opcao != 0);
-
-        System.out.println("------------------------------");
-        System.out.println("==============================");
-        System.out.println("Obrigado por usar nosso banco!");
-        System.out.println("==============================");
-
-
     }
+
+    public void entraNoADM() {
+        int opc = 0;
+        Administrador administrador = new Administrador();
+        Scanner clit = new Scanner(System.in);
+
+        do {
+            System.out.println("=============================");
+            System.out.println("         BANKTORAMA");
+            System.out.println("-----------------------------");
+            System.out.println("-------------------------");
+            System.out.println("Criar conta           [1]");
+            System.out.println("Saldo total do banco  [2]");
+            System.out.println("Contas cadastradas    [3]");
+            System.out.println("-------------------------");
+            System.out.println("Sair do acesso de Adm.[4]");
+            System.out.println("-------------------------");
+            System.out.println("Digite uma opção:");
+            System.out.print("-> ");
+
+            opc = clit.nextInt();
+
+            switch (opc) {
+                case 1:
+                    menuAdm.criarConta(administrador);
+                    break;
+                case 2:
+                    administrador.saldoTotal();
+                    break;
+
+                case 3:
+                    administrador.contasCadastradas();
+                    break;
+
+                default:
+                    System.out.println("Opção invalida!");
+                    break;
+            }
+
+        } while (opc < 4);
+    }
+
+
+
 }
+
