@@ -2,8 +2,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Administrador administrador = new Administrador();
-        TestaConta testeconta = new TestaConta();
+        MenuAdm menuAdm = new MenuAdm();
         Scanner input = new Scanner(System.in);
         int opcao = 0;
 
@@ -25,11 +24,11 @@ public class Main {
 
             switch (opcao){
                 case 1:
-                    administrador.entraNaConta();
+                    menuAdm.entraNaConta();
                     break;
 
                 case 2:
-                    testeconta.entraNoADM();
+                    menuAdm.entraNoADM();
                     break;
 
                 default:
