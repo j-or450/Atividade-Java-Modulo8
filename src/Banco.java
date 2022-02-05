@@ -28,33 +28,29 @@ public class Banco {
 
     public void sacarContaPoupanca(double valor){
         this.ContaPoupanca.sacar(valor);
-        System.out.println(this.ContaPoupanca.getSaldo());
+        //System.out.println(this.ContaPoupanca.getSaldo());
     }
 
     public void sacarContaCorrente(double valor){
         this.ContaCorrente.sacar(valor);
-        System.out.println(this.ContaCorrente.getSaldo());
+        //System.out.println(this.ContaCorrente.getSaldo());
 
     }
 
     public void sacarContaSalario(double valor){
         this.ContaSalario.sacar(valor);
-        System.out.println(this.ContaSalario.getSaldo());
+        //System.out.println(this.ContaSalario.getSaldo());
 
     }
 
     public void depositarContaPoupanca(double valor){
         this.ContaPoupanca.depositar(valor);
-        System.out.println(this.ContaPoupanca.getSaldo());
-    }
-    public void depositarContaSalario(double valor){
-        this.ContaSalario.depositar(valor);
-        System.out.println(this.ContaSalario.getSaldo());
+        //System.out.println(this.ContaPoupanca.getSaldo());
     }
 
     public void depositarContaCorrente(double valor){
         this.ContaCorrente.depositar(valor);
-        System.out.println(this.ContaCorrente.getSaldo());
+        //System.out.println(this.ContaCorrente.getSaldo());
     }
 
     public Double saldo(){

@@ -9,7 +9,6 @@ public class Administrador {
         Banco banco = new Banco();
         banco.setNomeCliente(nome);
         contas.add(banco);
-        System.out.println(contas.size());
     }
 
     public void criarContaCorrente(String nome){
@@ -20,7 +19,7 @@ public class Administrador {
                 System.out.print("-> ");
                 int numeroConta = novaConta.nextInt();
                 conta.criarContaCorrente(numeroConta, 45, 600, 500);
-                System.out.println("===========================");
+                System.out.println("======================");
                 System.out.println("Conta corrente criada:");
                 System.out.println("----------------------");
                 System.out.println("Menu principal     [4]");
@@ -39,7 +38,7 @@ public class Administrador {
                 System.out.print("-> ");
                 int numeroConta = novaConta.nextInt();
                 conta.criarContaPoupanca(numeroConta, 45,1000, 25, 0.05);
-                System.out.println("===========================");
+                System.out.println("======================");
                 System.out.println("Conta poupança criada:");
                 System.out.println("----------------------");
                 System.out.println("Menu principal     [4]");
@@ -58,7 +57,7 @@ public class Administrador {
                 System.out.print("-> ");
                 int numeroConta = novaConta.nextInt();
                 conta.criarContaSalario(numeroConta, 45,1500,2);
-                System.out.println("==========================");
+                System.out.println("=====================");
                 System.out.println("Conta salario criada:");
                 System.out.println("---------------------");
                 System.out.println("Menu principal    [4]");
@@ -91,9 +90,10 @@ public class Administrador {
     }
 
     public void saldoContaCorrente(String nome){
-        for(Banco banco : this.contas){
-            if(banco.getNomeCliente().equals(nome)){
-                System.out.println(banco.saldo());
+        for(Banco conta : this.contas){
+            if(conta.getNomeCliente().equals(nome)){
+                System.out.println("Titular:..." + conta.getNomeCliente());
+                System.out.println("Saldo:....." + conta.saldo());
             }
         }
     }
@@ -101,7 +101,8 @@ public class Administrador {
     public void saldoContaPoupanca(String nome){
         for(Banco conta : this.contas){
             if(conta.getNomeCliente().equals(nome)){
-                System.out.println(conta.saldo());
+                System.out.println("Titular:..." + conta.getNomeCliente());
+                System.out.println("Saldo:....." + conta.saldo());
             }
         }
     }
@@ -109,7 +110,8 @@ public class Administrador {
     public void saldoContaSalario(String nome){
         for(Banco conta : this.contas){
             if(conta.getNomeCliente().equals(nome)){
-                System.out.println(conta.saldo());
+                System.out.println("Titular:..." + conta.getNomeCliente());
+                System.out.println("Saldo:....." + conta.saldo());
             }
         }
     }
@@ -155,22 +157,10 @@ public class Administrador {
         for (Banco conta : this.contas) {
             if (conta.getNomeCliente().equals(nome)) {
                 Scanner cliente = new Scanner(System.in);
-                System.out.print("Digite o valor do deposito:");
-                System.out.println("->");
+                System.out.println("Digite o valor do deposito:");
+                System.out.print("->");
                 Double valor = cliente.nextDouble();
                 conta.depositarContaPoupanca(valor);
-            }
-        }
-    }
-
-    public void depositarSalario(String nome) {
-        for (Banco conta : this.contas) {
-            if (conta.getNomeCliente().equals(nome)) {
-                Scanner cliente = new Scanner(System.in);
-                System.out.print("Digite o valor do deposito:");
-                System.out.println("->");
-                Double valor = cliente.nextDouble();
-                conta.depositarContaSalario(valor);
             }
         }
     }
@@ -179,8 +169,8 @@ public class Administrador {
         for (Banco conta : this.contas) {
             if (conta.getNomeCliente().equals(nome)) {
                 Scanner cliente = new Scanner(System.in);
-                System.out.print("Digite o valor do deposito:");
-                System.out.println("->");
+                System.out.println("Digite o valor do deposito:");
+                System.out.print("->");
                 Double valor = cliente.nextDouble();
                 conta.depositarContaCorrente(valor);
             }
