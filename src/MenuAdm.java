@@ -110,11 +110,13 @@ public class MenuAdm {
 
             switch (opc) {
                 case 1:
-                    administrador.depositarPoupanca(nome);
+                    administrador.depositarCorrente(nome);
+
                     break;
                 case 2:
-                    administrador.depositarCorrente(nome);
+                    administrador.depositarPoupanca(nome);
                     break;
+
                 default:
                     System.out.println("Opção invalida!");
                     break;
