@@ -45,6 +45,44 @@ public class Banco {
         this.ContaCorrente.depositar(valor);
     }
 
+    public void transferir( Double valor, Integer tipoDeConta ,String operacao) {
+        String sacar = "sacar";
+        String depositar = "depositar";
+
+
+        if (sacar.equals(operacao)) {
+            switch (tipoDeConta) {
+                case 1:
+                    this.ContaCorrente.sacar(valor);
+                    break;
+
+                case 2:
+                    this.ContaPoupanca.sacar(valor);
+                    break;
+
+                default:
+                    System.out.println("Opção invalida!");
+                    break;
+            }
+        }
+
+        if (depositar.equals(operacao)) {
+            switch (tipoDeConta) {
+                case 1:
+                    this.ContaCorrente.depositar(valor);
+                    break;
+
+                case 2:
+                    this.ContaPoupanca.depositar(valor);
+                    break;
+
+                default:
+                    System.out.println("Opção invalida!");
+                    break;
+            }
+        }
+    }
+
 
     public Double saldo(){
         Double saldo = 0.0;

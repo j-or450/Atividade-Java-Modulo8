@@ -177,4 +177,16 @@ public class Administrador {
         }
     }
 
+    public void transferir(Integer tipoDeConta, Integer tipoDeContaDestino, Double valor, String nome, String destino) {
+        for (Banco conta : contas) {
+            if (conta.getNomeCliente().equals(nome)) {
+                conta.transferir(valor, tipoDeConta, "sacar");
+            }
+
+            if (conta.getNomeCliente().equals(destino)) {
+                conta.transferir(valor, tipoDeContaDestino, "depositar");
+            }
+        }
+    }
+
 }

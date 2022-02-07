@@ -228,7 +228,7 @@ public class MenuAdm {
                     System.out.println("Para deposito      [3]");
                     System.out.println("Para transferencia [4]");
                     System.out.println("--------------------------");
-                    System.out.println("Sair do acesso cliente [8]");
+                    System.out.println("Sair do acesso cliente [5]");
                     System.out.println("--------------------------");
                     System.out.println("Digite uma opção:");
                     System.out.print("-> ");
@@ -247,17 +247,56 @@ public class MenuAdm {
                             depositarConta(administrador);
                             break;
 
+                        case 4:
+                            transferencia(administrador, conta.getNomeCliente());
+                            break;
+
                         default:
                             System.out.println("Opção invalida!");
                             break;
                     }
 
-                }while (opc < 4);
+                }while (opc < 5);
             }
         }
     }
 
+    public void transferencia(Administrador administrador, String nome) {
+        Scanner cliente = new Scanner(System.in);
+        System.out.println("==========================");
+        System.out.println("Dados da conta de destino:");
+        System.out.println("-----------------------");
+        System.out.println("Digite o nome da conta:");
+        System.out.print("->");
+        String destino = cliente.nextLine();
 
+        int opcao = 0;
+        do {
+            System.out.println("-------------------------");
+            System.out.println("Escolho o tipo de conta:");
+            System.out.println("Conta Corrente   [1]");
+            System.out.println("Conta Poupança   [2]");
+            System.out.println("--------------------");
+            System.out.println("Cancelar         [4]");
+            System.out.println("--------------------");
+            System.out.println("Digite uma opção:");
+            System.out.print("-> ");
+
+            Scanner menu = new Scanner(System.in);
+            System.out.print("Digite o Tipo de Conta:");
+            Integer tipoDeConta = menu.nextInt();
+
+            System.out.print("Digite o Tipo de Conta Destino:");
+            Integer tipoDeContaDestino = menu.nextInt();
+
+            System.out.println("Digite o valor da transferencia:");
+            System.out.print("->");
+            Double valor = menu.nextDouble();
+
+            administrador.transferir(tipoDeConta, tipoDeContaDestino, valor, nome, destino);
+            break;
+        } while (opcao < 2);
+    }
 }
 
 
