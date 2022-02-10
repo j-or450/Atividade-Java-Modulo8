@@ -220,6 +220,7 @@ public class MenuAdm {
         System.out.println("=============================");
         for (Banco conta : administrador.contas) {
             if (conta.getNomeCliente().equals(cliente)) {
+                Integer tipoDeConta = conta.getTipoDeConta();
                 System.out.println("Ola, " + conta.getNomeCliente() + " é bom te ver de novo!");
                 do {
                     System.out.println("--------------------------");
@@ -248,7 +249,7 @@ public class MenuAdm {
                             break;
 
                         case 4:
-                            transferencia(administrador, conta.getNomeCliente());
+                            transferencia(administrador, conta.getNomeCliente(), tipoDeConta);
                             break;
 
                         default:
@@ -261,7 +262,7 @@ public class MenuAdm {
         }
     }
 
-    public void transferencia(Administrador administrador, String nome) {
+    public void transferencia(Administrador administrador, String nome, Integer tipoDeConta) {
         Scanner cliente = new Scanner(System.in);
         System.out.println("==========================");
         System.out.println("Dados da conta de destino:");
@@ -283,10 +284,9 @@ public class MenuAdm {
             System.out.print("-> ");
 
             Scanner menu = new Scanner(System.in);
-            System.out.print("Digite o Tipo de Conta:");
-            Integer tipoDeConta = menu.nextInt();
 
-            System.out.print("Digite o Tipo de Conta Destino:");
+            System.out.println("Digite o Tipo de Conta Destino:");
+            System.out.print("-> ");
             Integer tipoDeContaDestino = menu.nextInt();
 
             System.out.println("Digite o valor da transferencia:");

@@ -11,14 +11,16 @@ public class Administrador {
         contas.add(banco);
     }
 
-    public void criarContaCorrente(String nome){
+    public void criarContaCorrente(String nome ){
         for(Banco conta : this.contas){
             if(conta.getNomeCliente().equals(nome)){
+                int tipoDeConta = 1;
                 Scanner novaConta = new Scanner(System.in);
                 System.out.println("Numero da Conta:");
                 System.out.print("-> ");
                 int numeroConta = novaConta.nextInt();
-                conta.criarContaCorrente(numeroConta, 45, 600, 500);
+                conta.setTipoDeConta(tipoDeConta);
+                conta.criarContaCorrente(numeroConta, 45,600, 500);
                 System.out.println("======================");
                 System.out.println("Conta corrente criada:");
                 System.out.println("----------------------");
@@ -33,11 +35,13 @@ public class Administrador {
     public void criarContaPoupanca(String nome){
         for(Banco conta : this.contas){
             if(conta.getNomeCliente().equals(nome)){
+                int tipoDeConta = 2;
                 Scanner novaConta = new Scanner(System.in);
                 System.out.println("Numero da Conta:");
                 System.out.print("-> ");
                 int numeroConta = novaConta.nextInt();
-                conta.criarContaPoupanca(numeroConta, 45,1000, 25, 0.05);
+                conta.setTipoDeConta(tipoDeConta);
+                conta.criarContaPoupanca(numeroConta,45,1000, 25, 0.05);
                 System.out.println("======================");
                 System.out.println("Conta poupança criada:");
                 System.out.println("----------------------");
@@ -52,11 +56,13 @@ public class Administrador {
     public void criarContaSalario(String nome){
         for(Banco conta : this.contas){
             if(conta.getNomeCliente().equals(nome)){
+                int tipoDeConta = 2;
                 Scanner novaConta = new Scanner(System.in);
                 System.out.println("Numero da Conta:");
                 System.out.print("-> ");
                 int numeroConta = novaConta.nextInt();
-                conta.criarContaSalario(numeroConta, 45,1500,2);
+                conta.setTipoDeConta(tipoDeConta);
+                conta.criarContaSalario(numeroConta,45,1500,2);
                 System.out.println("=====================");
                 System.out.println("Conta salario criada:");
                 System.out.println("---------------------");

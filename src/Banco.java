@@ -1,9 +1,18 @@
 
 public class Banco {
+    protected int tipoDeConta;
     protected String NomeCliente;
     protected ContaPoupanca ContaPoupanca;
     protected ContaCorrente ContaCorrente;
     protected ContaSalario  ContaSalario;
+
+    public int getTipoDeConta() {
+        return tipoDeConta;
+    }
+
+    public void setTipoDeConta(int tipoDeConta) {
+        this.tipoDeConta = tipoDeConta;
+    }
 
     public String getNomeCliente() {
         return NomeCliente;
@@ -14,15 +23,15 @@ public class Banco {
     }
 
     public void criarContaCorrente(int numero, int agencia, double saldo, double chequeEspecial){
-        this.ContaCorrente = new ContaCorrente(numero,agencia,saldo,chequeEspecial);
+        this.ContaCorrente = new ContaCorrente(numero, agencia,saldo,chequeEspecial);
     }
 
     public void criarContaPoupanca(int numero, int agencia, double saldo, int diaAniversario, double taxaDeJuros){
-        this.ContaPoupanca=new ContaPoupanca(numero, agencia, saldo, diaAniversario, taxaDeJuros);
+        this.ContaPoupanca = new ContaPoupanca(numero, agencia, saldo, diaAniversario, taxaDeJuros);
     }
 
     public void criarContaSalario(int numero, int agencia, double saldo, int limite){
-        this.ContaSalario=new ContaSalario(numero, agencia, saldo, limite);
+        this.ContaSalario = new ContaSalario(numero, agencia, saldo, limite);
     }
 
     public void sacarContaPoupanca(double valor){
