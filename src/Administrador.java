@@ -98,8 +98,14 @@ public class Administrador {
     public void saldoContaCorrente(String nome){
         for(Banco conta : this.contas){
             if(conta.getNomeCliente().equals(nome)){
+                System.out.println("======================");
                 System.out.println("Titular:..." + conta.getNomeCliente());
                 System.out.println("Saldo:....." + conta.saldo());
+                System.out.println("----------------------");
+                System.out.println("Menu principal     [4]");
+                System.out.println("----------------------");
+                System.out.println("Digite uma opção:");
+                System.out.print("-> ");
             }
         }
     }
@@ -107,8 +113,14 @@ public class Administrador {
     public void saldoContaPoupanca(String nome){
         for(Banco conta : this.contas){
             if(conta.getNomeCliente().equals(nome)){
+                System.out.println("======================");
                 System.out.println("Titular:..." + conta.getNomeCliente());
                 System.out.println("Saldo:....." + conta.saldo());
+                System.out.println("----------------------");
+                System.out.println("Menu principal     [4]");
+                System.out.println("----------------------");
+                System.out.println("Digite uma opção:");
+                System.out.print("-> ");
             }
         }
     }
@@ -116,8 +128,14 @@ public class Administrador {
     public void saldoContaSalario(String nome){
         for(Banco conta : this.contas){
             if(conta.getNomeCliente().equals(nome)){
+                System.out.println("======================");
                 System.out.println("Titular:..." + conta.getNomeCliente());
                 System.out.println("Saldo:....." + conta.saldo());
+                System.out.println("----------------------");
+                System.out.println("Menu principal     [4]");
+                System.out.println("----------------------");
+                System.out.println("Digite uma opção:");
+                System.out.print("-> ");
             }
         }
     }
@@ -127,10 +145,17 @@ public class Administrador {
             if (conta.getNomeCliente().equals(nome)) {
                 System.out.println(conta.getNomeCliente() + " - " + conta.ContaPoupanca.getSaldo());
                 Scanner cliente = new Scanner(System.in);
-                System.out.print("Digite o valor do saque:");
-                System.out.println("->");
+                System.out.println("Digite o valor do saque:");
+                System.out.print("->");
                 Double valor = cliente.nextDouble();
                 conta.sacarContaPoupanca(valor);
+                System.out.println("======================");
+                System.out.println("Saque de: " + valor + " reais\nrealizado com sucesso.");
+                System.out.println("----------------------");
+                System.out.println("Menu principal     [4]");
+                System.out.println("----------------------");
+                System.out.println("Digite uma opção:");
+                System.out.print("-> ");
             }
         }
     }
@@ -139,10 +164,17 @@ public class Administrador {
         for (Banco conta : this.contas) {
             if (conta.getNomeCliente().equals(nome)) {
                 Scanner cliente = new Scanner(System.in);
-                System.out.print("Digite o valor do saque:");
-                System.out.println("->");
+                System.out.println("Digite o valor do saque:");
+                System.out.print("->");
                 Double valor = cliente.nextDouble();
                 conta.sacarContaCorrente(valor);
+                System.out.println("======================");
+                System.out.println("Saque de: " + valor + " reais\nrealizado com sucesso.");
+                System.out.println("----------------------");
+                System.out.println("Menu principal     [4]");
+                System.out.println("----------------------");
+                System.out.println("Digite uma opção:");
+                System.out.print("-> ");
             }
         }
     }
@@ -151,10 +183,17 @@ public class Administrador {
         for (Banco conta : this.contas) {
             if (conta.getNomeCliente().equals(nome)) {
                 Scanner cliente = new Scanner(System.in);
-                System.out.print("Digite o valor do saque:");
-                System.out.println("->");
+                System.out.println("Digite o valor do saque:");
+                System.out.print("->");
                 Double valor = cliente.nextDouble();
                 conta.sacarContaSalario(valor);
+                System.out.println("======================");
+                System.out.println("Saque de: " + valor + " reais\nrealizado com sucesso.");
+                System.out.println("----------------------");
+                System.out.println("Menu principal     [4]");
+                System.out.println("----------------------");
+                System.out.println("Digite uma opção:");
+                System.out.print("-> ");
             }
         }
     }
@@ -167,6 +206,13 @@ public class Administrador {
                 System.out.print("->");
                 Double valor = cliente.nextDouble();
                 conta.depositarContaPoupanca(valor);
+                System.out.println("======================");
+                System.out.println("Deposito: " + valor + " reais\nrealizado com sucesso.");
+                System.out.println("----------------------");
+                System.out.println("Menu principal     [4]");
+                System.out.println("----------------------");
+                System.out.println("Digite uma opção:");
+                System.out.print("-> ");
             }
         }
     }
@@ -179,6 +225,13 @@ public class Administrador {
                 System.out.print("->");
                 Double valor = cliente.nextDouble();
                 conta.depositarContaCorrente(valor);
+                System.out.println("======================");
+                System.out.println("Deposito: " + valor + " reais\nrealizado com sucesso.");
+                System.out.println("----------------------");
+                System.out.println("Menu principal     [4]");
+                System.out.println("----------------------");
+                System.out.println("Digite uma opção:");
+                System.out.print("-> ");
             }
         }
     }
@@ -191,6 +244,8 @@ public class Administrador {
 
             if (conta.getNomeCliente().equals(destino)) {
                 conta.transferir(valor, tipoDeContaDestino, "depositar");
+                System.out.println("----------------------------------");
+                System.out.println("Transf.:R$" + valor + " para conta: " + destino + "\nRealizada com sucesso!");
             }
         }
     }

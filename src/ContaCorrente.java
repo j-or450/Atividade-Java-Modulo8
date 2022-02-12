@@ -1,4 +1,4 @@
-public class ContaCorrente extends Conta {
+public class ContaCorrente extends Conta implements Imposto {
     private double chequeEspecial;
 
     public ContaCorrente(int numero, int agencia, double saldo, double chequeEspecial) {
@@ -20,13 +20,18 @@ public class ContaCorrente extends Conta {
                 "     Agencia: " + getAgencia();
     }
 
+    @Override
+    public double impostoT(){
+        return this.chequeEspecial * 0.05;
+
+    }
+
     public double getSaldo() {
         return this.chequeEspecial + this.saldo;
     }
 
     public void depositar(double valor) {
         this.saldo += valor;
-        System.out.println("Deposito: " + valor + " reais\nrealizado com sucesso.");
     }
 
     public boolean sacar(double valor) {
@@ -36,7 +41,6 @@ public class ContaCorrente extends Conta {
             return false;
         } else {
             this.saldo -= valor;
-            System.out.println("Saque de: " +valor+ " reais\nrealizado com sucesso.");
             return true;
         }
     }
