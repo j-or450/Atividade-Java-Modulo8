@@ -6,48 +6,40 @@ public class MenuAdm {
 
     public void criarConta(Administrador administrador) {
         Scanner cliente = new Scanner(System.in);
+        int opcao = 0;
+
         System.out.println("=========================");
         System.out.println("Abrir uma nova conta");
         System.out.println("-------------------------");
         System.out.println("Nome do Cliente:");
         System.out.print("-> ");
+
         String nome = cliente.nextLine();
         administrador.criarContaAdm(nome);
 
-        int opcao = 0;
+        System.out.println("-------------------------");
+        System.out.println("Escolho o tipo de conta:");
+        System.out.println("Conta Corrente   [1]");
+        System.out.println("Conta Poupança   [2]");
+        System.out.println("Conta Salário    [3]");
+        System.out.println("--------------------");
+        System.out.println("Cancelar         [4]");
+        System.out.println("--------------------");
+        System.out.println("Digite uma opção:");
+        System.out.print("-> ");
+        opcao = cliente.nextInt();
 
-        boolean ent = true;
-
-        do {
-
-            if (ent) {
-                System.out.println("-------------------------");
-                System.out.println("Escolho o tipo de conta:");
-                System.out.println("Conta Corrente   [1]");
-                System.out.println("Conta Poupança   [2]");
-                System.out.println("Conta Salário    [3]");
-                System.out.println("--------------------");
-                System.out.println("Cancelar         [4]");
-                System.out.println("--------------------");
-                System.out.println("Digite uma opção:");
-                System.out.print("-> ");
-                ent = false;
-            }
-            opcao = cliente.nextInt();
-
-            switch (opcao) {
-                case 1:
-                    administrador.criarContaCorrente(nome);
-                    break;
-                case 2:
-                    administrador.criarContaPoupanca(nome);
-                    break;
-                case 3:
-                    administrador.criarContaSalario(nome);
-                    break;
-            }
+        switch (opcao) {
+            case 1:
+                administrador.criarContaCorrente(nome);
+                break;
+            case 2:
+                administrador.criarContaPoupanca(nome);
+                break;
+            case 3:
+                administrador.criarContaSalario(nome);
+                break;
         }
-        while (opcao != 4);
     }
 
     public void sacarContas(Administrador administrador) {
@@ -157,10 +149,6 @@ public class MenuAdm {
                 case 3:
                     administrador.contasCadastradas();
                     break;
-
-                default:
-                    System.out.println("Opção invalida!");
-                    break;
             }
 
         } while (opc < 4);
@@ -176,17 +164,9 @@ public class MenuAdm {
         System.out.println("===============================");
         for (Banco conta : administrador.contas) {
             if (conta.getNomeCliente().equals(cliente)) {
-                String stringConta = "";
+                String stringConta = conta.getStringConta();
                 int tipoDeConta = conta.getTipoDeConta();
-                if(tipoDeConta == 1){
-                    stringConta = "Corrente";
-                }
-                else if(tipoDeConta == 2){
-                    stringConta = "Poupança";
-                }
-                else if(tipoDeConta == 3){
-                    stringConta = "Salario";
-                }
+
                 System.out.println("Ola, " + conta.getNomeCliente() + " é bom te ver de novo!");
                 System.out.println("Conta: " + stringConta + " | " + "Numero: " + conta.numeroDeConta());
 
@@ -234,28 +214,10 @@ public class MenuAdm {
         System.out.println("Digite o nome da conta:");
         System.out.print("->");
         String destino = cliente.nextLine();
-
-        int opcao = 0;
-        do {
-            Scanner menu = new Scanner(System.in);
-            System.out.println("-------------------------------");
-            System.out.println("Dig. o tipo de conta destino:");
-            System.out.println("Conta Corrente   [1]");
-            System.out.println("Conta Poupança   [2]");
-            System.out.println("--------------------");
-            System.out.println("Cancelar         [3]");
-            System.out.println("--------------------");
-            System.out.println("Digite uma opção:");
-            System.out.print("-> ");
-            Integer tipoDeContaDestino = menu.nextInt();
-            System.out.println("Dig. o valor da transferencia:");
-            System.out.print("->");
-            Double valor = menu.nextDouble();
-
-            administrador.transferir(tipoDeConta, tipoDeContaDestino, valor, nome, destino);
-            break;
-
-        } while (opcao < 3);
+        System.out.println("Dig. o valor da transferencia:");
+        System.out.print("->");
+        Double valor = cliente.nextDouble();
+        administrador.transferir(tipoDeConta, valor, nome, destino);
     }
 }
 

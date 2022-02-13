@@ -15,19 +15,17 @@ public class Administrador {
         for(Banco conta : this.contas){
             if(conta.getNomeCliente().equals(nome)){
                 int tipoDeConta = 1;
+                conta.setTipoDeConta(tipoDeConta);
+                String stringConta = "Corrente";
+                conta.setStringConta(stringConta);
                 Scanner novaConta = new Scanner(System.in);
                 System.out.println("Numero da Conta:");
                 System.out.print("-> ");
                 int numeroConta = novaConta.nextInt();
-                conta.setTipoDeConta(tipoDeConta);
                 conta.criarContaCorrente(numeroConta, 45,600, 500);
                 System.out.println("======================");
                 System.out.println("Conta corrente criada:");
                 System.out.println("----------------------");
-                System.out.println("Menu principal     [4]");
-                System.out.println("----------------------");
-                System.out.println("Digite uma opção:");
-                System.out.print("-> ");
             }
         }
     }
@@ -40,15 +38,13 @@ public class Administrador {
                 System.out.print("-> ");
                 int tipoDeConta = 2;
                 conta.setTipoDeConta(tipoDeConta);
+                String stringConta = "Poupança";
+                conta.setStringConta(stringConta);
                 int numeroConta = novaConta.nextInt();
                 conta.criarContaPoupanca(numeroConta,45,1000, 25, 0.05);
                 System.out.println("======================");
                 System.out.println("Conta poupança criada:");
                 System.out.println("----------------------");
-                System.out.println("Menu principal     [4]");
-                System.out.println("----------------------");
-                System.out.println("Digite uma opção:");
-                System.out.print("-> ");
             }
         }
     }
@@ -57,29 +53,30 @@ public class Administrador {
         for(Banco conta : this.contas){
             if(conta.getNomeCliente().equals(nome)){
                 int tipoDeConta = 3;
+                conta.setTipoDeConta(tipoDeConta);
+                String stringConta = "Salario";
+                conta.setStringConta(stringConta);
                 Scanner novaConta = new Scanner(System.in);
                 System.out.println("Numero da Conta:");
                 System.out.print("-> ");
                 int numeroConta = novaConta.nextInt();
-                conta.setTipoDeConta(tipoDeConta);
                 conta.criarContaSalario(numeroConta,45,1500,2);
                 System.out.println("=====================");
                 System.out.println("Conta salario criada:");
                 System.out.println("---------------------");
-                System.out.println("Menu principal    [4]");
-                System.out.println("---------------------");
-                System.out.println("Digite uma opção:");
-                System.out.print("-> ");
             }
         }
     }
 
     public void contasCadastradas() {
         System.out.println("========================");
-        System.out.println("  Contas cadastradas");
+        System.out.println("***CONTAS CADASTRADAS***");
         System.out.println("------------------------");
         for (Banco banco : this.contas) {
-            System.out.println("Criente:..." + banco.getNomeCliente() + "\n" + "Numero:...." + banco.numeroDeConta() + "\n" + "Saldo:....." + banco.saldo());
+            System.out.println("Criente:.." + banco.getNomeCliente());
+            System.out.println("Conta:...." + banco.getStringConta());
+            System.out.println("Numero:..." + banco.numeroDeConta());
+            System.out.println("Saldo:...." + banco.saldo());
             System.out.println();
         }
     }
@@ -211,18 +208,19 @@ public class Administrador {
         }
     }
 
-    public void transferir(Integer tipoDeConta, Integer tipoDeContaDestino, Double valor, String nome, String destino) {
+    public void transferir(Integer tipoDeConta, Double valor, String nome, String destino) {
         for (Banco conta : contas) {
             if (conta.getNomeCliente().equals(nome)) {
                 conta.transferir(valor, tipoDeConta, "sacar");
             }
 
             if (conta.getNomeCliente().equals(destino)) {
-                conta.transferir(valor, tipoDeContaDestino, "depositar");
-                System.out.println("----------------------------------");
-                System.out.println("Transferencia:...R$" + valor);
-                System.out.println("Para conta:......" + destino);
-                System.out.println("Tipo de conta:...");
+                conta.transferir(valor, tipoDeConta, "depositar");
+                System.out.println("------------------------------");
+                System.out.println("Transferencia:....R$" + valor);
+                System.out.println("Para conta:......." + destino);
+                System.out.println("Tipo de conta:...." + conta.getStringConta());
+                System.out.println("Numero da conta:.." + conta.numeroDeConta());
             }
         }
     }

@@ -1,10 +1,19 @@
 
 public class Banco {
+    protected String stringConta;
     protected int tipoDeConta;
     protected String NomeCliente;
     protected ContaPoupanca ContaPoupanca;
     protected ContaCorrente ContaCorrente;
     protected ContaSalario  ContaSalario;
+
+    public String getStringConta() {
+        return stringConta;
+    }
+
+    public void setStringConta(String stringConta) {
+        this.stringConta = stringConta;
+    }
 
     public int getTipoDeConta() {
         return tipoDeConta;
