@@ -88,7 +88,6 @@ public class MenuAdm {
         }
     }
 
-
     public void saldoDasConstas(Administrador administrador){
         Scanner cliente = new Scanner(System.in);
         System.out.println("-------------------------");
