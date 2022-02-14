@@ -42,12 +42,7 @@ public class MenuAdm {
         }
     }
 
-    public void sacarContas(Administrador administrador) {
-        Scanner cliente = new Scanner(System.in);
-        System.out.println("Dig. o nome do titular\nPara fazer um saque:");
-        System.out.print("-> ");
-        String nome = cliente.nextLine();
-
+    public void sacarContas(Administrador administrador, String nome) {
         for (Banco conta : administrador.contas) {
             if (conta.getNomeCliente().equals(nome)) {
                 int tipoDeConta = conta.getTipoDeConta();
@@ -66,12 +61,7 @@ public class MenuAdm {
         }
     }
 
-    public void depositarConta(Administrador administrador) {
-        Scanner cliente = new Scanner(System.in);
-        System.out.println("Dig. o nome do titular\nPara fazer deposito:");
-        System.out.print("->");
-        String nome = cliente.nextLine();
-
+    public void depositarConta(Administrador administrador, String nome) {
         for (Banco conta : administrador.contas) {
             if (conta.getNomeCliente().equals(nome)) {
                 int tipoDeConta = conta.getTipoDeConta();
@@ -88,13 +78,7 @@ public class MenuAdm {
         }
     }
 
-    public void saldoDasConstas(Administrador administrador){
-        Scanner cliente = new Scanner(System.in);
-        System.out.println("-------------------------");
-        System.out.println("Dig. o nome do titular\nPara ver o saldo: ");
-        System.out.print("->");
-        String nome = cliente.nextLine();
-
+    public void saldoDasConstas(Administrador administrador, String nome){
         for (Banco conta : administrador.contas) {
             if (conta.getNomeCliente().equals(nome)) {
                 int tipoDeConta = conta.getTipoDeConta();
@@ -149,7 +133,6 @@ public class MenuAdm {
                     administrador.contasCadastradas();
                     break;
             }
-
         } while (opc < 4);
     }
 
@@ -185,14 +168,14 @@ public class MenuAdm {
 
                     switch (opc) {
                         case 1:
-                            saldoDasConstas(administrador);
+                            saldoDasConstas(administrador, conta.getNomeCliente());
                             break;
                         case 2:
-                            sacarContas(administrador);
+                            sacarContas(administrador, conta.getNomeCliente());
                             break;
 
                         case 3:
-                            depositarConta(administrador);
+                            depositarConta(administrador, conta.getNomeCliente());
                             break;
 
                         case 4:

@@ -15,7 +15,7 @@ public class Main {
             System.out.println("Cliente do Banco        [1]");
             System.out.println("Administrador do Banco  [2]");
             System.out.println("---------------------------");
-            System.out.println("Sair do aplicativo      [9]");
+            System.out.println("Sair do aplicativo      [3]");
             System.out.println("---------------------------");
             System.out.println("Digite uma opção:");
             System.out.print("-> ");
