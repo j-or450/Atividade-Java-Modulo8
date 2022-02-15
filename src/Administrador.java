@@ -211,11 +211,11 @@ public class Administrador {
     public void transferir(Integer tipoDeConta, Double valor, String nome, String destino) {
         for (Banco conta : contas) {
             if (conta.getNomeCliente().equals(nome)) {
-                conta.transferir(valor, tipoDeConta, "sacar");
+                conta.transferir(valor, "sacar", destino, nome);
             }
 
             if (conta.getNomeCliente().equals(destino)) {
-                conta.transferir(valor, tipoDeConta, "depositar");
+                conta.transferir(valor, "depositar", destino, nome);
                 System.out.println("------------------------------");
                 System.out.println("Transferencia:....R$" + valor);
                 System.out.println("Para conta:......." + destino);

@@ -7,6 +7,8 @@ public class Banco {
     protected ContaCorrente ContaCorrente;
     protected ContaSalario  ContaSalario;
 
+    Administrador administrador = new Administrador();
+
     public String getStringConta() {
         return stringConta;
     }
@@ -63,40 +65,49 @@ public class Banco {
         this.ContaCorrente.depositar(valor);
     }
 
-    public void transferir( Double valor, Integer tipoDeConta ,String operacao) {
+    public void transferir( Double valor ,String operacao, String destino, String nome) {
         String sacar = "sacar";
         String depositar = "depositar";
 
-
         if (sacar.equals(operacao)) {
-            switch (tipoDeConta) {
-                case 1:
-                    this.ContaCorrente.sacar(valor);
-                    break;
+            for (Banco conta : administrador.contas) {
+                if (conta.getNomeCliente().equals(nome)) {
+                    int tipoDeConta = conta.getTipoDeConta();
+                    switch (tipoDeConta) {
+                        case 1:
+                            this.ContaCorrente.sacar(valor);
+                            break;
 
-                case 2:
-                    this.ContaPoupanca.sacar(valor);
-                    break;
+                        case 2:
+                            this.ContaPoupanca.sacar(valor);
+                            break;
 
-                default:
-                    System.out.println("Opção invalida!");
-                    break;
+                        default:
+                            System.out.println("Opção invalida!");
+                            break;
+                    }
+                }
             }
         }
 
         if (depositar.equals(operacao)) {
-            switch (tipoDeConta) {
-                case 1:
-                    this.ContaCorrente.depositar(valor);
-                    break;
+            for(Banco conta : administrador.contas) {
+                if (conta.getNomeCliente().equals(destino)) {
+                    int tipoDeConta = conta.getTipoDeConta();
+                    switch (tipoDeConta) {
+                        case 1:
+                            this.ContaCorrente.depositar(valor);
+                            break;
 
-                case 2:
-                    this.ContaPoupanca.depositar(valor);
-                    break;
+                        case 2:
+                            this.ContaPoupanca.depositar(valor);
+                            break;
 
-                default:
-                    System.out.println("Opção invalida!");
-                    break;
+                        default:
+                            System.out.println("Opção invalida!");
+                            break;
+                    }
+                }
             }
         }
     }
