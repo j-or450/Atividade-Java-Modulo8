@@ -146,7 +146,6 @@ public class MenuAdm {
         for (Banco conta : administrador.contas) {
             if (conta.getNomeCliente().equals(cliente)) {
                 String stringConta = conta.getStringConta();
-                int tipoDeConta = conta.getTipoDeConta();
 
                 System.out.println("Ola, " + conta.getNomeCliente() + " é bom te ver de novo!");
                 System.out.println("Conta: " + stringConta + " | " + "Numero: " + conta.numeroDeConta());
