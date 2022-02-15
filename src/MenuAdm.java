@@ -178,7 +178,7 @@ public class MenuAdm {
                             break;
 
                         case 4:
-                            transferencia(administrador, conta.getNomeCliente(), tipoDeConta);
+                            transferencia(administrador, conta.getNomeCliente());
                             break;
                     }
 
@@ -187,7 +187,7 @@ public class MenuAdm {
         }
     }
 
-    public void transferencia(Administrador administrador, String nome, Integer tipoDeConta) {
+    public void transferencia(Administrador administrador, String nome) {
         Scanner cliente = new Scanner(System.in);
         System.out.println("==========================");
         System.out.println("Dados da conta de destino:");
@@ -198,7 +198,7 @@ public class MenuAdm {
         System.out.println("Dig. o valor da transferencia:");
         System.out.print("->");
         Double valor = cliente.nextDouble();
-        administrador.transferir(tipoDeConta, valor, nome, destino);
+        administrador.transferir(valor, nome, destino);
     }
 }
 

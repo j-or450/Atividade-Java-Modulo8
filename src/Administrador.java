@@ -208,7 +208,7 @@ public class Administrador {
         }
     }
 
-    public void transferir(Integer tipoDeConta, Double valor, String nome, String destino) {
+    public void transferir(Double valor, String nome, String destino) {
         for (Banco conta : contas) {
             if (conta.getNomeCliente().equals(nome)) {
                 conta.transferir(valor, "sacar", destino, nome);
