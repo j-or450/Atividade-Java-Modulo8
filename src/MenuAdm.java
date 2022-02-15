@@ -95,7 +95,6 @@ public class MenuAdm {
                         administrador.saldoContaSalario(nome);
                         break;
                 }
-
             }
         }
     }
