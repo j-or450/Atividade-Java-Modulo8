@@ -1,0 +1,19 @@
+
+Recomendações
+
+•	No primeiro menu escolha a opção administrador (opção 2).
+
+•	No menu administrador escolha opção cadastra contas (opção 1) porque só depois de cadastras as contas que as outras
+    operações podem ser feitas no acesso cliente.
+
+•	Coloco nomes diferente para cada conta. A identificação de cada conta será pelo nome.
+
+•	A transferência só não pode ser feita da conta salário para outras contas e das outras contas para conta salário.
+
+•	Obs.: Pode alterna entre acesso administrador e acesso cliente a qualquer momento. Só seguir os menus.
+
+•	As contas correntes e contas poupanças podem ser feitos todas as operações.
+
+•	As contas salario só podem ser feitas a operações saque. Para ficar mais parecida com a lógica de um banco real.
+
+•	Digite as opções correta porque não tem tratamento de exceções.
