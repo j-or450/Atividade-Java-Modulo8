@@ -105,10 +105,7 @@ public class MenuAdm {
         Scanner clit = new Scanner(System.in);
 
         do {
-            System.out.println("=============================");
-            System.out.println("         BANKTORAMA");
-            System.out.println("-----------------------------");
-            System.out.println("-------------------------");
+            System.out.println("=========================");
             System.out.println("Criar conta           [1]");
             System.out.println("Saldo total do banco  [2]");
             System.out.println("Contas cadastradas    [3]");
@@ -190,7 +187,7 @@ public class MenuAdm {
         Scanner cliente = new Scanner(System.in);
         System.out.println("==========================");
         System.out.println("Dados da conta de destino:");
-        System.out.println("-----------------------");
+        System.out.println("          ****");
         System.out.println("Digite o nome da conta:");
         System.out.print("->");
         String destino = cliente.nextLine();
