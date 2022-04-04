@@ -2,13 +2,18 @@ public abstract class Conta {
      private int numero;
      private int agencia;
      protected double saldo;
+    protected double comprarDebito;
+
+    public double getComprarDebito() {
+        return comprarDebito;
+    }
+
+    public void setComprarDebito(double comprarDebito) {
+        this.comprarDebito = comprarDebito;
+    }
 
     public int getNumero() {
         return numero;
-    }
-
-    public void setNumero(int numero) {
-        this.numero = numero;
     }
 
     public int getAgencia() {
@@ -17,21 +22,8 @@ public abstract class Conta {
 
     public abstract double getSaldo();
 
-    public void setSaldo(double saldo){
-        this.saldo = saldo;
-    }
-
     public void depositar(double valor){
         saldo += valor;
-    }
-
-    public boolean sacar(double valor) {
-        if ((saldo - valor) >= 0) {
-            saldo -= valor;
-            return true;
-        } else {
-            return false;
-        }
     }
 
     public Conta(int numero, int agencia, double saldo) {

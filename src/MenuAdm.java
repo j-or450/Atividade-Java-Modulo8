@@ -78,6 +78,22 @@ public class MenuAdm {
         }
     }
 
+    public void comprarDebito(Administrador administrador, String nome){
+        for (Banco conta : administrador.contas) {
+            if (conta.getNomeCliente().equals(nome)) {
+                int tipoDeConta = conta.getTipoDeConta();
+                switch (tipoDeConta) {
+                    case 1:
+                        administrador.compDebCorrente(nome);
+                        break;
+                    case 2:
+                        administrador.compDebPoupanca(nome);
+                        break;
+                }
+            }
+        }
+    }
+
     public void saldoDasConstas(Administrador administrador, String nome){
         for (Banco conta : administrador.contas) {
             if (conta.getNomeCliente().equals(nome)) {
@@ -105,13 +121,12 @@ public class MenuAdm {
         Scanner clit = new Scanner(System.in);
 
         do {
-            System.out.println("=========================");
-            System.out.println("Criar conta           [1]");
-            System.out.println("Saldo total do banco  [2]");
-            System.out.println("Contas cadastradas    [3]");
-            System.out.println("-------------------------");
-            System.out.println("Sair do acesso de Adm.[4]");
-            System.out.println("-------------------------");
+            System.out.println("=================================");
+            System.out.println("Criar conta                   [1]");
+            System.out.println("Saldo total do banco          [2]");
+            System.out.println("Contas cadastradas            [3]");
+            System.out.println("Sair do acesso Administrador  [4]");
+            System.out.println("---------------------------------");
             System.out.println("Digite uma opção:");
             System.out.print("-> ");
 
@@ -149,10 +164,10 @@ public class MenuAdm {
 
                 do {
                     System.out.println("--------------------------");
-                    System.out.println("Para saldo         [1]");
-                    System.out.println("Para saque         [2]");
-                    System.out.println("Para deposito      [3]");
-                    System.out.println("Para transferencia [4]");
+                    System.out.println("Para saldo             [1]");
+                    System.out.println("Para saque             [2]");
+                    System.out.println("Para deposito          [3]");
+                    System.out.println("Para transferencia     [4]");
                     System.out.println("--------------------------");
                     System.out.println("Sair do acesso cliente [5]");
                     System.out.println("--------------------------");
@@ -176,9 +191,13 @@ public class MenuAdm {
                         case 4:
                             transferencia(administrador, conta.getNomeCliente());
                             break;
+
+                        case 5:
+                            comprarDebito(administrador, conta.getNomeCliente());
+                            break;
                     }
 
-                }while (opc < 5);
+                }while (opc < 6);
             }
         }
     }
@@ -196,6 +215,8 @@ public class MenuAdm {
         Double valor = cliente.nextDouble();
         administrador.transferir(valor, nome, destino);
     }
+
+
 }
 
 

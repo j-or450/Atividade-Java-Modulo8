@@ -56,6 +56,17 @@ public class ContaPoupanca extends Conta {
             return true;
         }
     }
+
+    public void comprar(double comparDebito) {
+        double disponivel =  getSaldo();
+        if(comparDebito > disponivel) {
+            System.out.println("Compra no debito negada.\nConfira seu saldo.");
+
+        } else {
+            this.saldo -= comparDebito;
+
+        }
+    }
 }
 
 

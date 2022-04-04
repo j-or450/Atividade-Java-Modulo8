@@ -3,19 +3,21 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         MenuAdm menuAdm = new MenuAdm();
+        MostraCliente mostraCliente = new MostraCliente();
         Scanner input = new Scanner(System.in);
         int opcao = 0;
 
         do {
-            System.out.println("=============================");
+            System.out.println("#############################");
             System.out.println("         BANKTORAMA");
+            System.out.println("*****************************");
             System.out.println("-----------------------------");
-            System.out.println("---------------------------");
             System.out.println("Escolha o tipo de acesso:  ");
-            System.out.println("Cliente do Banco        [1]");
-            System.out.println("Administrador do Banco  [2]");
+            System.out.println("Fazer compras           [1]");
+            System.out.println("Acessar a conta         [2]");
+            System.out.println("Acessoa Administrador   [3]");
             System.out.println("---------------------------");
-            System.out.println("Sair do aplicativo      [3]");
+            System.out.println("Sair do aplicativo      [4]");
             System.out.println("---------------------------");
             System.out.println("Digite uma opção:");
             System.out.print("-> ");
@@ -24,10 +26,14 @@ public class Main {
 
             switch (opcao){
                 case 1:
-                    menuAdm.entraNaConta();
+                    mostraCliente.clienteComprado();
                     break;
 
                 case 2:
+                    menuAdm.entraNaConta();
+                    break;
+
+                case 3:
                     menuAdm.entraNoADM();
                     break;
 
@@ -36,7 +42,7 @@ public class Main {
                     break;
             }
 
-        }while(opcao < 3);
+        }while(opcao < 4);
 
         System.out.println("------------------------------");
         System.out.println("==============================");

@@ -1,15 +1,18 @@
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Administrador {
 
     protected ArrayList<Banco> contas = new ArrayList<>();
 
+
     public void criarContaAdm(String nome){
         Banco banco = new Banco();
         banco.setNomeCliente(nome);
         contas.add(banco);
     }
+
 
     public void criarContaCorrente(String nome ){
         for(Banco conta : this.contas){
@@ -18,10 +21,11 @@ public class Administrador {
                 conta.setTipoDeConta(tipoDeConta);
                 String stringConta = "Corrente";
                 conta.setStringConta(stringConta);
-                Scanner novaConta = new Scanner(System.in);
                 System.out.println("Numero da Conta:");
                 System.out.print("-> ");
-                int numeroConta = novaConta.nextInt();
+                int numeroConta = 0;
+                Random aleatoio = new Random();
+                numeroConta= aleatoio.nextInt(88) + 1111;
                 conta.criarContaCorrente(numeroConta, 45,600, 500);
                 System.out.println("======================");
                 System.out.println("Conta corrente criada:");
@@ -33,14 +37,15 @@ public class Administrador {
     public void criarContaPoupanca(String nome){
         for(Banco conta : this.contas){
             if(conta.getNomeCliente().equals(nome)){
-                Scanner novaConta = new Scanner(System.in);
                 System.out.println("Numero da Conta:");
                 System.out.print("-> ");
                 int tipoDeConta = 2;
                 conta.setTipoDeConta(tipoDeConta);
                 String stringConta = "Poupança";
                 conta.setStringConta(stringConta);
-                int numeroConta = novaConta.nextInt();
+                int numeroConta = 0;
+                Random aleatoio = new Random();
+                numeroConta= aleatoio.nextInt(88) + 2211;
                 conta.criarContaPoupanca(numeroConta,45,1000, 25, 0.05);
                 System.out.println("======================");
                 System.out.println("Conta poupança criada:");
@@ -56,10 +61,9 @@ public class Administrador {
                 conta.setTipoDeConta(tipoDeConta);
                 String stringConta = "Salario";
                 conta.setStringConta(stringConta);
-                Scanner novaConta = new Scanner(System.in);
-                System.out.println("Numero da Conta:");
-                System.out.print("-> ");
-                int numeroConta = novaConta.nextInt();
+                int numeroConta = 0;
+                Random aleatoio = new Random();
+                numeroConta= aleatoio.nextInt(88) + 3311;
                 conta.criarContaSalario(numeroConta,45,1500,2);
                 System.out.println("=====================");
                 System.out.println("Conta salario criada:");
@@ -195,7 +199,7 @@ public class Administrador {
                 Scanner cliente = new Scanner(System.in);
                 System.out.println("Dig. o valor do deposito:");
                 System.out.print("->");
-               double valor = cliente.nextDouble();
+                double valor = cliente.nextDouble();
                 conta.depositarContaCorrente(valor);
                 System.out.println("==========================");
                 System.out.println("****DADOS DO DEPOSITO*****");
@@ -206,6 +210,42 @@ public class Administrador {
                 System.out.println("Valor do Dep.:...." + valor);
             }
         }
+    }
+
+    public void compDebCorrente(String nome){
+        for(Banco conta : this.contas) {
+            if(conta.getNomeCliente().equals(nome)){
+                Scanner compras = new Scanner(System.in);
+                System.out.println("Qual valor da compra:");
+                System.out.print("->");
+                double comprarDebito = compras.nextDouble();
+                conta.comprarDebitoContaCorrente(comprarDebito);
+                System.out.println("==========================+");
+                System.out.println("******DADOS DO COMPRA******");
+                System.out.println("---------------------------");
+                System.out.println("Tipo de compra:... Debito" );
+                System.out.println("Valor da compra:.. " + comprarDebito);
+            }
+        }
+    }
+
+    public void compDebPoupanca(String nome){
+        for(Banco conta : this.contas) {
+            if(conta.getNomeCliente().equals(nome)){
+                Scanner compras = new Scanner(System.in);
+                System.out.println("compDebPoupaca");
+                System.out.println("Qual valor da compra:");
+                System.out.print("->");
+                double valor = compras.nextDouble();
+                conta.comprarDebitoContaPoupanca(valor);
+                System.out.println("==========================+");
+                System.out.println("******DADOS DO COMPRA******");
+                System.out.println("---------------------------");
+                System.out.println("Tipo de compra:... Debito" );
+                System.out.println("Valor da compra:.. " + valor);
+            }
+        }
+
     }
 
     public void transferir(Double valor, String nome, String destino) {
@@ -224,5 +264,4 @@ public class Administrador {
             }
         }
     }
-
 }

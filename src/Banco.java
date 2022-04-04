@@ -6,8 +6,17 @@ public class Banco {
     protected ContaPoupanca ContaPoupanca;
     protected ContaCorrente ContaCorrente;
     protected ContaSalario  ContaSalario;
+    protected double comprarDebito;
 
     Administrador administrador = new Administrador();
+
+    public double getComprarDebito() {
+        return comprarDebito;
+    }
+
+    public void setComprarDebito(double comprarDebito) {
+        this.comprarDebito = comprarDebito;
+    }
 
     public String getStringConta() {
         return stringConta;
@@ -45,6 +54,8 @@ public class Banco {
         this.ContaSalario = new ContaSalario(numero, agencia, saldo, limite);
     }
 
+
+
     public void sacarContaPoupanca(double valor){
         this.ContaPoupanca.sacar(valor);
     }
@@ -64,6 +75,15 @@ public class Banco {
     public void depositarContaCorrente(double valor){
         this.ContaCorrente.depositar(valor);
     }
+
+    public void comprarDebitoContaCorrente(double comprarDebito){
+        this.ContaCorrente.comprar(comprarDebito);
+    }
+
+    public void comprarDebitoContaPoupanca(double comprarDebito){
+        this.ContaPoupanca.comprar(comprarDebito);
+    }
+
 
     public void transferir( Double valor ,String operacao, String destino, String nome) {
         String sacar = "sacar";

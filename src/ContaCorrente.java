@@ -36,12 +36,23 @@ public class ContaCorrente extends Conta implements Imposto {
 
     public boolean sacar(double valor) {
         double disponivel = this.chequeEspecial + this.saldo;
-        if(valor > disponivel) {
+        if (valor > disponivel) {
             System.out.println("Saldo insuficiente para saque.\nConfira seu saldo.");
             return false;
         } else {
             this.saldo -= valor;
             return true;
+        }
+    }
+
+    public void comprar(double comprarDebito) {
+        double disponivel =  getSaldo();
+        if(comprarDebito > disponivel) {
+            System.out.println("Compra no debito negada.\nConfira seu saldo.");
+
+        } else {
+            this.saldo -= comprarDebito;
+
         }
     }
 }
