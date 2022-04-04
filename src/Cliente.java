@@ -30,9 +30,6 @@ public class Cliente{
     }
 
 
-
-
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -44,15 +41,4 @@ public class Cliente{
         }
         return sb.toString();
     }
-
-
-        //sb.append(sdf.format(moment) + "\n");
-
-        //for(OrderItem item : items) {
-            //sb.append(item + "\n");
-
-
-        //sb.append(String.format("%.2f", total()));
-
-
 }
